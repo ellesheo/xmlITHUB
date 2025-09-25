@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE timeTable [
+  <!ELEMENT timeTable (complexes, lessons)>
+  <!ELEMENT complexes (complex+)>
+  <!ELEMENT complex (name, address)>
+  <!ELEMENT lessons (lesson+)>
+  <!ELEMENT lesson (date, time)>
+  <!ELEMENT date (#PCDATA)>
+  <!ELEMENT time (#PCDATA)>
+  <!ELEMENT name (#PCDATA)>
+  <!ELEMENT address (#PCDATA)>
+    <!ATTLIST complex code ID #REQUIRED>
+  <!ATTLIST lesson no CDATA #REQUIRED>
+  <!ATTLIST lesson complex_code IDREF #REQUIRED>
+]> 
+ 
+<timeTable>
+  <complexes>
+    <complex code="C1">
+      <name>coplex "Aqua"</name>
+      <address>Green street, 8</address>
+    </complex>
+    <complex code="C2">
+      <name>complex "Mountain"</name>
+      <address>Orange street, 6</address>
+    </complex>
+    <complex code="C3">
+      <name>complex "Forest"</name>
+      <address>Krasnaya street, 4</address>
+    </complex>
+  </complexes>
+  
+  <lessons>
+    <lesson no="1" complex_code="C1">
+      <date>2025-09-01</date>
+      <time>11:00-12:30</time>
+    </lesson>
+    <lesson no="2" complex_code="C2">
+      <date>2025-09-01</date>
+      <time>15:00-16:30</time>
+    </lesson>
+    <lesson no="3" complex_code="C3">
+      <date>2025-09-30</date>
+      <time>09:30-11:00</time>
+    </lesson>
+    <lesson no="4" complex_code="C3">
+      <date>2025-09-25</date>
+      <time>13:00 - 14:30</time>
+    </lesson>
+  </lessons>
+</timeTable>
