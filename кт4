@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+<xsl:template match="/items">
+  <ul>
+    <xsl:apply-templates select="item[@parentid = 0]"/>
+  </ul>
+</xsl:template>
+
+<xsl:template match="item">
+  <xsl:variable name="id" select="@id"/>
+  <li id="{$id}">
+    <strong><xsl:value-of select="@author"/></strong> пишет: 
+    <span><xsl:value-of select="."/></span>
+    <xsl:variable name="children" select = "../item[@parentid = $id]"/>
+    <xsl:if test = "$children">
+     <ul>
+      <xsl:apply-templates select="$children"/>
+    </ul>
+    </xsl:if>
+  </li>
+</xsl:template>
+
+</xsl:stylesheet>
